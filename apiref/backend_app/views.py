@@ -28,6 +28,8 @@ class AuthorListView(generics.ListCreateAPIView):
 class AuthorDetailView(generics.RetrieveAPIView):
     queryset = BooksAuthor.objects.all()
     serializer_class = BooksAuthorSerializer
+    pagination_class = CustomPagination
+
 
     name = 'Author detail'
 
@@ -35,6 +37,7 @@ class AuthorDetailView(generics.RetrieveAPIView):
 class BookListView(generics.ListCreateAPIView):
     queryset = BooksBook.objects.all().order_by('-download_count')
     serializer_class = BooksBookSerializer
+    pagination_class = CustomPagination
     name = 'Books-list'
     filter_backends = [
        
@@ -52,5 +55,7 @@ class BookListView(generics.ListCreateAPIView):
 class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BooksBook.objects.all()
     serializer_class = BooksBookSerializer
+    pagination_class = CustomPagination
+
     name = 'Book-detail'
 

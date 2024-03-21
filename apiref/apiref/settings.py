@@ -64,6 +64,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'apiref.urls'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20,
+    'MAX_PAGINATION_LIMIT': 1000,
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
